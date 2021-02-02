@@ -50,5 +50,37 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.home-wrapper {
+  .topnavAndBanner {
+    .banner {
+      padding: 100px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: whitesmoke;
+      > .actions{
+        padding: 8px 0;
+        a {
+          margin:0 8px;
+          background: #fff;
+          display: inline-block;
+          $h: 32px;
+          height: $h;
+          line-height: $h;
+          border-radius: $h/2;
+          padding: 0 1em;
+        }
+      }
+    }
+  }
+  .features {
+    text-align: center;
+    >ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}
 </style>

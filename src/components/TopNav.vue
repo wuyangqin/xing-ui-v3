@@ -19,9 +19,11 @@ export default {
 <style lang="scss">
 @import "../assets/css/xing-ui-v3.scss";
 .top-nav {
+  position: relative;
   background: skyblue;
   display: flex;
   padding: $padding-md;
+  z-index: 20;
   > .logo {
     max-width: 6em;
     margin-right: auto;

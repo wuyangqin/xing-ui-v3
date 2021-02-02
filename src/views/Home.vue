@@ -1,16 +1,15 @@
 <template>
   <div class="home-wrapper">
-    <div class="topnav">
-      <div class="logo"></div>
-      <div class="menu"></div>
-    </div>
-    <div class="banner">
-      <h1>Xing-UI-V3</h1>
-      <h2>基于Vue3的 UI 框架</h2>
-      <p class="actions">
-        <a href="https://github.com/wuyangqin/xing-ui-v3" target="_blank">GitHub</a>
-        <router-link to="/doc">开始</router-link>
-      </p>
+    <div class="topnavAndBanner">
+      <top-nav></top-nav>
+      <div class="banner">
+        <h1>Xing-UI-V3</h1>
+        <h2>基于Vue3的 UI 框架</h2>
+        <p class="actions">
+          <a href="https://github.com/wuyangqin/xing-ui-v3" target="_blank">GitHub</a>
+          <router-link to="/doc">开始</router-link>
+        </p>
+      </div>
     </div>
     <div class="features">
       <ul>
@@ -41,7 +40,13 @@
 </template>
 
 <script lang="ts">
+import TopNav from "../components/TopNav.vue";
 
+export default {
+  components: {
+    TopNav
+  }
+}
 </script>
 
 <style scoped lang="scss">

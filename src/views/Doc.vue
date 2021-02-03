@@ -1,7 +1,7 @@
 <template>
   <div class="doc-wrapper">
     <top-nav></top-nav>
-    <div class="content">
+    <div class="content" v-show="asideVisible">
       <aside>
         <dl>
           <dt>
@@ -18,12 +18,18 @@
   </div>
 </template>
 
-<script>
-import TopNav from "../components/TopNav.vue";
+<script lang="ts">
+import TopNav from "../components/TopNav.vue"
+import { inject, ref } from 'vue'
 
 export default {
+  name: 'doc',
   components: {
     TopNav
+  },
+  setup () {
+    const asideVisible = inject<ref<boolean>>('asideVisible')
+    return { asideVisible }
   }
 }
 </script>

@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/css/xing-ui-v3.scss";
+@import "../assets/css/xing-ui-v3-docs.scss";
 
 .doc-wrapper {
   .content {
@@ -43,10 +43,10 @@ export default {
       position: fixed;
       top: 0;
       left: 0;
-      width: 200px;
+      width: $aside-width;
       height: 100vh;
       padding: $padding-md;
-      padding-top: 80px;
+      padding-top: $top-nav-height + 20;
       background: $gray-2;
       >dl {
         >dt {

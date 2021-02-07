@@ -58,7 +58,7 @@ export default {
       margin: 0 1em;
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: $responsive-width) {
     justify-content: center;
     > .toggle-icon { display: inline-block; }
     > .log { margin: 0 auto; }

@@ -4,13 +4,20 @@
 
 <script>
 import { ref, provide } from 'vue'
+import { router } from './router'
 
 export default {
   name: 'App',
   setup () {
     const screenWidth = document.documentElement.clientWidth
-    const asideVisible = ref(screenWidth <= 500 ? false : true)
+    const responsiveWidth = 500
+    const asideVisible = ref(screenWidth <= responsiveWidth ? false : true)
     provide('asideVisible', asideVisible)
+    router.afterEach(() => {
+      if (screenWidth <= responsiveWidth) {
+        asideVisible.value = false
+      }
+    })
   }
 }
 </script>

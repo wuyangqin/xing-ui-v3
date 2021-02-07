@@ -7,13 +7,15 @@
           <dt>
             <h3>组件列表</h3>
           </dt>
-          <dd><router-link to="doc/switch">Switch 开关</router-link></dd>
-          <dd><router-link to="doc/button">Button 按钮</router-link></dd>
-          <dd><router-link to="doc/dialog">Dialog 对话框</router-link></dd>
-          <dd><router-link to="doc/tabs">Tabs 标签页</router-link></dd>
+          <dd><router-link to="/doc/switch">Switch 开关</router-link></dd>
+          <dd><router-link to="/doc/button">Button 按钮</router-link></dd>
+          <dd><router-link to="/doc/dialog">Dialog 对话框</router-link></dd>
+          <dd><router-link to="/doc/tabs">Tabs 标签页</router-link></dd>
         </dl>
       </aside>
-      <main>主内容</main>
+      <main>
+        <router-view></router-view>
+      </main>
     </div>
   </div>
 </template>
@@ -39,6 +41,7 @@ export default {
 
 .doc-wrapper {
   .content {
+    padding-left: $aside-width;
     aside {
       position: fixed;
       top: 0;

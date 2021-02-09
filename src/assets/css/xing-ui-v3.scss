@@ -41,6 +41,9 @@ $light-border: 1px solid $gray-1;
 $border-color-main: $gray-2;
 $border-color-light: $gray-1;
 
+//box-shadow
+$box-shadow: 0 0 8px 0 rgba(51,51,51,.1),0 2px 4px 0 rgba(51,51,51,.1);
+
 //border-radius
 $border-radius: 4px;
 
@@ -50,3 +53,8 @@ $padding-sm: 8px;
 $padding-xs: 12px;
 $padding-md: 16px;
 $padding-lg: 20px;
+
+svg {
+  width: 100%;
+  height: 100%;
+}

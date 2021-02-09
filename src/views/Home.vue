@@ -14,23 +14,29 @@
     <div class="features">
       <ul>
         <li>
-          <svg>
-            <use xlink:href="#icon-vue"></use>
-          </svg>
+          <div class="home-icon">
+            <svg>
+              <use xlink:href="#x-vue"></use>
+            </svg>
+          </div>
           <h3>基于 Vue 3</h3>
           <p>使用了 Vue 3 Composition API</p>
         </li>
         <li>
-          <svg>
-            <use xlink:href="#icon-ts"></use>
-          </svg>
+          <div class="home-icon">
+            <svg>
+              <use xlink:href="#x-typescript"></use>
+            </svg>
+          </div>
           <h3>基于 TypeScript </h3>
           <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
-          <svg>
-            <use xlink:href="#icon-light"></use>
-          </svg>
+          <div class="home-icon">
+            <svg>
+              <use xlink:href="#x-1024"></use>
+            </svg>
+          </div>
           <h3>代码易读</h3>
           <p>每个组件的源代码都极其简洁</p>
         </li>
@@ -50,15 +56,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../assets/css/xing-ui-v3-docs.scss";
 .home-wrapper {
   .topnavAndBanner {
+    //background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    background-image: linear-gradient(to top, #fff1eb 0%, #cbf1f5 100%);
+    clip-path: ellipse(80% 60% at 50% 40%);
     .banner {
       padding: 100px 0;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: whitesmoke;
       > .actions{
         padding: 8px 0;
         a {
@@ -77,9 +86,24 @@ export default {
   .features {
     text-align: center;
     >ul {
+      margin-top: $padding-md;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      >li {
+        .home-icon {
+          display: inline-block;
+          width: 64px;
+          height: 100px;
+        }
+      }
+    }
+  }
+  @media (max-width: $responsive-width) {
+    .features {
+      >ul {
+        flex-direction: column;
+      }
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="doc-wrapper">
     <top-nav></top-nav>
-    <div class="content" v-show="asideVisible">
-      <aside>
+    <div class="content">
+      <aside v-show="asideVisible">
         <dl>
           <dt>
             <h3>组件列表</h3>
@@ -41,6 +41,7 @@ export default {
 
 .doc-wrapper {
   .content {
+    box-sizing: border-box;
     padding-left: $aside-width;
     aside {
       position: fixed;
@@ -49,16 +50,25 @@ export default {
       width: $aside-width;
       height: 100vh;
       padding: $padding-md;
-      padding-top: $top-nav-height + 20;
+      padding-top: $top-nav-height + 20px;
       background: $gray-2;
       >dl {
         >dt {
-          line-height: 40px;
+          line-height: 48px;
         }
         >dd {
-          line-height: 36px;
+          line-height: 40px;
           text-indent: 1em;
         }
+      }
+    }
+    main {
+      padding: $padding-lg * 2;
+    }
+    @media (max-width: $responsive-width) {
+      padding: 0;
+      main {
+        padding: $padding-lg;
       }
     }
   }

@@ -1,7 +1,13 @@
 <template>
   <header class="top-nav">
-    <div class="toggle-icon" @click="toggleAside"></div>
-    <div class="logo">LOGO</div>
+    <div class="toggle-icon" @click="toggleAside">
+      <svg>
+        <use xlink:href="#x-toggle"></use>
+      </svg>
+    </div>
+    <div class="logo">
+      <router-link to="/">LOGO</router-link>
+    </div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -29,25 +35,24 @@ export default {
 @import "../assets/css/xing-ui-v3-docs.scss";
 .top-nav {
   position: relative;
-  background: skyblue;
+  background: $white;
   display: flex;
   align-items: center;
   padding: $padding-md;
   z-index: 20;
   height: $top-nav-height;
+  box-shadow: $box-shadow;
   > .toggle-icon {
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    width: 15px;
-    height: 15px;
-    background-color: $gray-2;
+    width: 24px;
+    height: 24px;
     display: none;
   }
   > .logo {
     max-width: 6em;
-    margin: 0 1em;
   }
   > .menu {
     margin-left: auto;

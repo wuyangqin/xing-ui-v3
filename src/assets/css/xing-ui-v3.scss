@@ -57,6 +57,10 @@ $padding-lg: 20px;
 //Switch
 $switch-height: 22px;
 $switch-width: $switch-height * 2;
+$switch-duration: 250ms;
+
+//animate
+$duration: .3s;
 
 svg {
   width: 100%;

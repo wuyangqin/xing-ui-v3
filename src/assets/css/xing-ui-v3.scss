@@ -1,4 +1,4 @@
-$main-theme-color: #2DD39C;
+$main-theme-color: #87dfd6;
 $main-hover-color: #57DCB0;
 $main-active-color: #29B48C;
 $black: #000;
@@ -53,6 +53,10 @@ $padding-sm: 8px;
 $padding-xs: 12px;
 $padding-md: 16px;
 $padding-lg: 20px;
+
+//Switch
+$switch-height: 22px;
+$switch-width: $switch-height * 2;
 
 svg {
   width: 100%;

@@ -12,6 +12,16 @@ a {
   color: inherit;
   &:hover { cursor: pointer; text-decoration: underline }
 }
+button:focus,
+button:active:focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button.active.focus {
+  outline: none;
+  border-color: transparent; // 若是本身具有 border 请删除此属性
+  box-shadow:none;
+}
 body {
   font-size: 16px;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;

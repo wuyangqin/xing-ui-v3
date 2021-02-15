@@ -26,7 +26,7 @@ export default {
   height: $switch-height;
   width: $switch-width;
   border: none;
-  background: $gray-4;
+  background: $gray-3;
   border-radius: $switch-height / 2;
   cursor: pointer;
   transition: background $switch-duration;
@@ -38,12 +38,24 @@ export default {
     height: $switch-height - 4px;
     border-radius: $switch-height / 2;
     background: $white;
-    transition: left $switch-duration;
+    box-shadow: $switch-shadow;
+    transition: left $switch-duration, width $switch-duration, margin-left .1s;
   }
   &.checked{
     background: $main-theme-color;
     >span {
       left: calc(100%  - #{$switch-height} + 2px);
+    }
+  }
+  &:active {
+    >span {
+      width: $switch-height - 1px;
+    }
+  }
+  &.checked:active {
+    >span {
+      width: $switch-height - 1px;
+      margin-left: -3px;
     }
   }
 }

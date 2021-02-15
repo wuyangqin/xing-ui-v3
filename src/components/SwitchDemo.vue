@@ -1,6 +1,7 @@
 <template>
   <div>
     <x-switch v-model:value="bool"></x-switch>
+    <x-switch v-model:value="checked" disabled></x-switch>
   </div>
 </template>
 
@@ -14,8 +15,9 @@ export default {
     XSwitch
   },
   setup () {
-    const bool = ref(false)
-    return { bool }
+    const bool = ref<boolean>(false)
+    const checked = ref<boolean>(false)
+    return { bool, checked }
   }
 }
 </script>

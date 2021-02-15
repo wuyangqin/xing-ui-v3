@@ -1,18 +1,28 @@
 <template>
-  <button class="x-switch" :class="{ 'checked': value }" @click="toggle">
-    <span></span>
-  </button>
+  <div>
+    <button class="x-switch"
+            :class="{ 'checked': value, disabled }"
+            @click="toggle">
+      <span></span>
+    </button>
+  </div>
 </template>
 
 <script lang="ts">
 
 export default {
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   setup (props, context) {
     const toggle = () => {
-      context.emit('update:value', !props.value)
+      if (!props.disabled) {
+        context.emit('update:value', !props.value)
+      }
     }
     return { toggle }
   }
@@ -41,16 +51,15 @@ export default {
     box-shadow: $switch-shadow;
     transition: left $switch-duration, width $switch-duration, margin-left .1s;
   }
-  &.checked{
+  &.checked {
     background: $main-theme-color;
     >span {
       left: calc(100%  - #{$switch-height} + 2px);
     }
   }
-  &:active {
-    >span {
-      width: $switch-height - 1px;
-    }
+  &.disabled { opacity: .5; cursor: not-allowed; }
+  &:not(.disabled):active {
+    >span { width: $switch-height - 1px; }
   }
   &.checked:active {
     >span {

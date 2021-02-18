@@ -1,30 +1,53 @@
 <template>
   <div>
     <button class="x-switch"
-            :class="{ 'checked': value, disabled }"
+            :class="switchClasses"
             @click="toggle">
-      <span></span>
+      <span>
+        <i v-if="loading">
+          <x-icon name="loading"></x-icon>
+        </i>
+      </span>
     </button>
   </div>
 </template>
 
 <script lang="ts">
+import XIcon from './Icon.vue'
 
 export default {
+  components: {
+    XIcon
+  },
   props: {
     value: Boolean,
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
       type: Boolean,
       default: false
     }
   },
   setup (props, context) {
     const toggle = () => {
-      if (!props.disabled) {
+      let { disabled, loading } = props
+      if (!disabled && !loading) {
         context.emit('update:value', !props.value)
       }
     }
     return { toggle }
+  },
+  computed: {
+    switchClasses () {
+      let { value, disabled, loading } = this
+      return {
+        'checked': value,
+        'disabled': disabled || loading,
+        loading
+      }
+    }
   }
 }
 </script>
@@ -50,6 +73,11 @@ export default {
     background: $white;
     box-shadow: $switch-shadow;
     transition: left $switch-duration, width $switch-duration, margin-left .1s;
+    >i {
+      line-height: $switch-height;
+      >svg { width: 13px; height: 13px;
+        animation: spin 2s infinite linear; }
+    }
   }
   &.checked {
     background: $main-theme-color;
@@ -58,6 +86,7 @@ export default {
     }
   }
   &.disabled { opacity: .5; cursor: not-allowed; }
+  &.loading { cursor: default; }
   &:not(.disabled):active {
     >span { width: $switch-height - 1px; }
   }

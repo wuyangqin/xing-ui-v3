@@ -2,6 +2,7 @@
   <div>
     <x-switch v-model:value="bool"></x-switch>
     <x-switch v-model:value="checked" disabled></x-switch>
+    <x-switch v-model:value="checked" loading></x-switch>
   </div>
 </template>
 

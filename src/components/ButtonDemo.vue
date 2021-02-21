@@ -1,11 +1,12 @@
 <template>
   <div>
-    <x-button size="small"
-              @click="clickButton"
-              @mouseenter="clickButton"
-              @focus="clickButton">
-      点我
-    </x-button>
+    <x-button>default</x-button>
+    <x-button theme="primary">primary</x-button>
+    <x-button theme="text">text</x-button>
+    <x-button theme="info">info</x-button>
+    <x-button theme="danger">danger</x-button>
+    <x-button theme="warning">warning</x-button>
+    <x-button theme="success">success</x-button>
   </div>
 </template>
 
@@ -26,5 +27,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.x-button {
+  margin-left: 8px;
+}
 </style>

@@ -66,6 +66,15 @@ $button-primary-background: $main-theme-color;
 $button-default-border: 1px solid $gray-3;
 $button-default-color: $gray-8;
 $button-text-color: $main-theme-color;
+$button-mini-height: 24px;
+$button-mini-font-size: $font-size-sm;
+$button-small-height: 32px;
+$button-small-font-size: $font-size-sm13;
+$button-normal-height: 40px;
+$button-normal-font-size: $font-size-md;
+$button-large-height: 49px;
+$button-large-font-size: $font-size-lg;
+
 
 //animate
 $duration: .3s;

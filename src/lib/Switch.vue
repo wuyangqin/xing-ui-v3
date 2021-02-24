@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <button class="x-switch"
-            :class="switchClasses"
-            @click="toggle">
-      <span>
-        <i v-if="loading">
-          <x-icon name="loading"></x-icon>
-        </i>
-      </span>
-    </button>
-  </div>
+  <button class="xx-switch"
+          :class="switchClasses"
+          @click="toggle">
+    <span>
+      <i v-if="loading">
+        <x-icon name="loading"></x-icon>
+      </i>
+    </span>
+  </button>
 </template>
 
 <script lang="ts">
@@ -54,7 +52,7 @@ export default {
 
 <style lang="scss">
 @import "../assets/css/xing-ui-v3.scss";
-.x-switch {
+.xx-switch {
   position: relative;
   height: $switch-height;
   width: $switch-width;

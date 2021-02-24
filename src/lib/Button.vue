@@ -1,5 +1,5 @@
 <template>
-  <button class="x-button" :class="buttonClasses">
+  <button class="xx-button" :class="buttonClasses">
     <slot></slot>
   </button>
 </template>
@@ -27,8 +27,8 @@ export default {
     const { theme, size } = props
     const buttonClasses = computed(() => {
       return {
-        [`x-theme-${theme}`]:theme,
-        [`x-size-${size}`]:size
+        [`xx-theme-${theme}`]:theme,
+        [`xx-size-${size}`]:size
       }
     })
     return { buttonClasses }
@@ -38,7 +38,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/css/xing-ui-v3.scss";
-.x-button {
+.xx-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@ export default {
   &:focus { outline: none; }
   &::-moz-focus-inner { border: 0; }
   &:active { background: $main-active-color; }
-  &.x-theme-default {
+  &.xx-theme-default {
     background: $white;
     border: $button-default-border;
     color: $button-default-color;
@@ -78,7 +78,7 @@ export default {
       color: $main-active-color;
     }
   }
-  &.x-theme-link {
+  &.xx-theme-link {
     background: none;
     box-shadow: none;
     color: $button-link-color;
@@ -87,21 +87,21 @@ export default {
     }
     &:active { color: $main-active-color; }
   }
-  &.x-theme-info { background: $info; }
-  &.x-theme-danger { background: $error; }
-  &.x-theme-warning { background: $warning; }
-  &.x-theme-success { background: $success; }
-  &.x-size-mini {
+  &.xx-theme-info { background: $info; }
+  &.xx-theme-danger { background: $error; }
+  &.xx-theme-warning { background: $warning; }
+  &.xx-theme-success { background: $success; }
+  &.xx-size-mini {
     padding: 0 $padding-xs;
     height: $button-mini-height;
     font-size: $button-mini-font-size;
   }
-  &.x-size-small {
+  &.xx-size-small {
     height: $button-small-height;
     font-size: $button-small-font-size;
     padding: 0 $padding-md;
   }
-  &.x-size-large {
+  &.xx-size-large {
     height: $button-large-height;
     font-size: $button-large-font-size;
     padding: 0 $padding-lg * 2;

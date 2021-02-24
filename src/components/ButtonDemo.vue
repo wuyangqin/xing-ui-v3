@@ -3,18 +3,34 @@
     <h3>示例一</h3>
     <x-button>default</x-button>
     <x-button theme="primary">primary</x-button>
-<!--    <x-button theme="text">text</x-button>-->
     <x-button theme="link">link</x-button>
-    <x-button theme="info">info</x-button>
-    <x-button theme="danger">danger</x-button>
-    <x-button theme="warning">warning</x-button>
-    <x-button theme="success">success</x-button>
     <div>
       <h3>示例2</h3>
       <x-button size="mini">点我</x-button>
       <x-button size="small">点我</x-button>
       <x-button>点我</x-button>
       <x-button size="large">点我</x-button>
+    </div>
+    <div>
+      <h3>示例3</h3>
+      <div>
+        <x-button level="info">info</x-button>
+        <x-button level="warning">warning</x-button>
+        <x-button level="danger">danger</x-button>
+        <x-button level="success">success</x-button>
+      </div>
+      <div>
+        <x-button level="info" theme="primary">info</x-button>
+        <x-button level="warning" theme="primary">warning</x-button>
+        <x-button level="danger" theme="primary">danger</x-button>
+        <x-button level="success" theme="primary">success</x-button>
+      </div>
+      <div>
+        <x-button level="info" theme="link">info</x-button>
+        <x-button level="warning" theme="link">warning</x-button>
+        <x-button level="danger" theme="link">danger</x-button>
+        <x-button level="success" theme="link">success</x-button>
+      </div>
     </div>
   </div>
 </template>

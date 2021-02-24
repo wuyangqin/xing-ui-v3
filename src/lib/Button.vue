@@ -53,15 +53,39 @@ export default {
   color: $white;
   white-space: nowrap;
   cursor: pointer;
+  transition: background $button-duration;
+  @media (any-hover: hover){
+    &:hover, &:focus { background: $main-hover-color;}
+  }
+  &:focus { outline: none; }
+  &::-moz-focus-inner { border: 0; }
+  &:active { background: $main-active-color; }
   &.x-theme-default {
     background: $white;
     border: $button-default-border;
     color: $button-default-color;
+    transition: all $button-duration;
+    @media (any-hover: hover){
+      &:hover,
+      &:focus {
+        border-color: $button-default-focus-color;
+        color: $button-default-focus-color;
+      }
+    }
+    &:active {
+      background: $main-color-light;
+      border-color: $main-active-color;
+      color: $main-active-color;
+    }
   }
-  &.x-theme-text {
+  &.x-theme-link {
     background: none;
     box-shadow: none;
-    color: $button-text-color;
+    color: $button-link-color;
+    @media (any-hover: hover){
+      &:hover,&:focus { color: $main-hover-color; }
+    }
+    &:active { color: $main-active-color; }
   }
   &.x-theme-info { background: $info; }
   &.x-theme-danger { background: $error; }

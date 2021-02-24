@@ -3,7 +3,8 @@
     <h3>示例一</h3>
     <x-button>default</x-button>
     <x-button theme="primary">primary</x-button>
-    <x-button theme="text">text</x-button>
+<!--    <x-button theme="text">text</x-button>-->
+    <x-button theme="link">link</x-button>
     <x-button theme="info">info</x-button>
     <x-button theme="danger">danger</x-button>
     <x-button theme="warning">warning</x-button>

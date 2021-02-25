@@ -38,6 +38,10 @@
       <x-button disabled theme="primary">primary</x-button>
       <x-button disabled theme="link">link</x-button>
     </div>
+    <div>
+      <h3>示例5 加载</h3>
+      <x-button loading>加载中</x-button>
+    </div>
   </div>
 </template>
 

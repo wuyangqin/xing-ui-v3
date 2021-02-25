@@ -104,7 +104,7 @@ $button-disabled: $disabled;
 $duration: 300ms;
 $duration-fast: 250ms;
 
-@keyframes spin {
+@keyframes xx-spin {
   0% { transform: rotate(0deg) }
   100% { transform: rotate(360deg) }
 }
@@ -112,4 +112,16 @@ $duration-fast: 250ms;
 svg {
   width: 100%;
   height: 100%;
+}
+
+.xx-loadingIndicator{
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: $padding-base;
+  border-radius: $padding-xs;
+  border-color: $main-theme-color $main-theme-color $main-theme-color transparent;
+  border-style: solid;
+  border-width: 2px;
+  animation: xx-spin 1s infinite linear;
 }

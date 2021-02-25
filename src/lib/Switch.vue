@@ -3,9 +3,10 @@
           :class="switchClasses"
           @click="toggle">
     <span>
-      <i v-if="loading">
-        <x-icon name="loading"></x-icon>
-      </i>
+      <span v-if="loading" class="xx-loadingIndicator"></span>
+<!--      <i v-if="loading">-->
+<!--        <x-icon name="loading"></x-icon>-->
+<!--      </i>-->
     </span>
   </button>
 </template>
@@ -71,10 +72,16 @@ export default {
     background: $white;
     box-shadow: $switch-shadow;
     transition: left $switch-duration, width $switch-duration, margin-left .1s;
+    .xx-loadingIndicator {
+      margin-right: 0;
+      width: 12px;
+      height: 12px;
+      border-color: $gray-3 $gray-3 $gray-3 transparent;
+    }
     >i {
       line-height: $switch-height;
       >svg { width: 13px; height: 13px;
-        animation: spin 2s infinite linear; }
+        animation: xx-spin 2s infinite linear; }
     }
   }
   &.checked {

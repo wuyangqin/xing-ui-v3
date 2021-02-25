@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>示例一</h3>
-    <x-button>default</x-button>
+    <x-button @click="clickButton">default</x-button>
     <x-button theme="primary">primary</x-button>
     <x-button theme="link">link</x-button>
     <div>
@@ -31,6 +31,12 @@
         <x-button level="danger" theme="link">danger</x-button>
         <x-button level="success" theme="link">success</x-button>
       </div>
+    </div>
+    <div>
+      <h3>示例4 禁用</h3>
+      <x-button disabled>default</x-button>
+      <x-button disabled theme="primary">primary</x-button>
+      <x-button disabled theme="link">link</x-button>
     </div>
   </div>
 </template>

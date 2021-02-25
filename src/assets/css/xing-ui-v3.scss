@@ -38,6 +38,7 @@ $warning-active: darken($warning, 8%);
 $info: #C5D4EA;
 $info-hover: lighten($info, 5%);
 $info-active: darken($info, 8%);
+$disabled: $gray-3;
 $item-height-regular: 32px;
 
 // Font
@@ -96,6 +97,7 @@ $button-normal-height: 40px;
 $button-normal-font-size: $font-size-md;
 $button-large-height: 49px;
 $button-large-font-size: $font-size-lg;
+$button-disabled: $disabled;
 
 
 //animate

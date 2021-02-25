@@ -1,5 +1,5 @@
 <template>
-  <button class="xx-button" :class="buttonClasses">
+  <button class="xx-button" :class="buttonClasses" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -229,6 +229,19 @@ export default {
       }
       &:active { color: $error-active; }
     }
+  }
+  &[disabled] { cursor: not-allowed; }
+  &.xx-theme-default {
+    &[disabled] {
+      color: $button-disabled;
+      &:hover { border-color: $button-disabled;}
+    }
+  }
+  &.xx-theme-primary {
+    &[disabled] { background: $button-disabled; }
+  }
+  &.xx-theme-link {
+    &[disabled] { color: $button-disabled; }
   }
 }
 </style>

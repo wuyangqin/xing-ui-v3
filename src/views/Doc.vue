@@ -49,6 +49,7 @@ export default {
       left: 0;
       width: $aside-width;
       height: 100vh;
+      z-index: 1000;
       padding: $padding-md;
       padding-top: $top-nav-height + 20px;
       background: $gray-2;

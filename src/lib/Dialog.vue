@@ -1,11 +1,11 @@
 <template>
   <template v-if="visible">
-    <div class="xx-dialog-overlay"></div>
+    <div class="xx-dialog-overlay" @click="onClickOverlay"></div>
     <div class="xx-dialog-wrapper">
       <div class="xx-dialog">
         <header>
           标题
-          <span class="xx-dialog-close"></span>
+          <span class="xx-dialog-close" @click="close"></span>
         </header>
         <main>
           <p>内容</p>
@@ -13,8 +13,8 @@
           <p>内容</p>
         </main>
         <footer>
-          <x-button size="small">取消</x-button>
-          <x-button size="small" theme="primary">确定</x-button>
+          <x-button size="small" @click="onCancel">取消</x-button>
+          <x-button size="small" theme="primary" @click="onConfirm">确定</x-button>
         </footer>
       </div>
     </div>
@@ -33,6 +33,40 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    onConfirm: {
+      type: Function,
+      default: () => {}
+    },
+  },
+  setup (props, context) {
+    const { closeOnClickOverlay, onConfirm: propsOnConfirm } = props
+    const close = () => {
+      context.emit('update:visible', false)
+    }
+    const onClickOverlay = () => {
+      if (closeOnClickOverlay) {
+        close()
+      }
+    }
+    const onCancel = () => {
+      context.emit('onCancel')
+      close()
+    }
+    const onConfirm = () => {
+      if (propsOnConfirm?.() !== false) { // 是否有propsOnConfirm且propsOnConfirm的返回值不为false
+        close()
+      }
+    }
+    return {
+      close,
+      onClickOverlay,
+      onCancel,
+      onConfirm
     }
   },
 }

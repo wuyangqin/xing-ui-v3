@@ -1,7 +1,10 @@
 <template>
   <div>
     <x-button @click="toggle">toggle</x-button>
-    <x-dialog v-model:visible="visible"></x-dialog>
+    <x-dialog v-model:visible="visible"
+              :close-on-click-overlay="false" :on-confirm="confirm"
+              @onCancel="cancel">
+    </x-dialog>
   </div>
 </template>
 
@@ -17,11 +20,16 @@ export default {
     XButton
   },
   setup () {
-    const visible = ref(false)
+    const visible = ref<boolean>(false)
     const toggle = () => {
       visible.value = !visible.value
     }
-    return { visible, toggle }
+    const confirm = () => {
+      return true
+    }
+    const cancel = () => {
+    }
+    return { visible, toggle, confirm, cancel }
   }
 }
 </script>

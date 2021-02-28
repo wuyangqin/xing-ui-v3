@@ -1,22 +1,24 @@
 <template>
-  <div class="xx-dialog-overlay"></div>
-  <div class="xx-dialog-wrapper">
-    <div class="xx-dialog">
-      <header>
-        标题
-        <span class="xx-dialog-close"></span>
-      </header>
-      <main>
-        <p>内容</p>
-        <p>内容</p>
-        <p>内容</p>
-      </main>
-      <footer>
-        <x-button size="small">取消</x-button>
-        <x-button size="small" theme="primary">确定</x-button>
-      </footer>
+  <template v-if="visible">
+    <div class="xx-dialog-overlay"></div>
+    <div class="xx-dialog-wrapper">
+      <div class="xx-dialog">
+        <header>
+          标题
+          <span class="xx-dialog-close"></span>
+        </header>
+        <main>
+          <p>内容</p>
+          <p>内容</p>
+          <p>内容</p>
+        </main>
+        <footer>
+          <x-button size="small">取消</x-button>
+          <x-button size="small" theme="primary">确定</x-button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
@@ -26,7 +28,13 @@ export default {
   name:'x-Dialog',
   components: {
     XButton
-  }
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
 }
 </script>
 

@@ -4,13 +4,13 @@
     <div class="xx-dialog-wrapper">
       <div class="xx-dialog">
         <header>
-          标题
+          <slot v-if="$slots.title" name="title"></slot>
+          <span v-else>{{ title }}</span>
           <span class="xx-dialog-close" @click="close"></span>
         </header>
         <main>
-          <p>内容</p>
-          <p>内容</p>
-          <p>内容</p>
+          <slot v-if="$slots.content" name="content"></slot>
+          <div v-else>{{ content }}</div>
         </main>
         <footer>
           <x-button size="small" @click="onCancel">取消</x-button>
@@ -41,6 +41,14 @@ export default {
     onConfirm: {
       type: Function,
       default: () => {}
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    content: {
+      type: String,
+      default: ''
     },
   },
   setup (props, context) {

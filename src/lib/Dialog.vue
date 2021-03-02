@@ -1,23 +1,25 @@
 <template>
   <template v-if="visible">
-    <div class="xx-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="xx-dialog-wrapper">
-      <div class="xx-dialog">
-        <header>
-          <slot v-if="$slots.title" name="title"></slot>
-          <span v-else>{{ title }}</span>
-          <span class="xx-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <slot v-if="$slots.content" name="content"></slot>
-          <div v-else>{{ content }}</div>
-        </main>
-        <footer>
-          <x-button size="small" @click="onCancel">取消</x-button>
-          <x-button size="small" theme="primary" @click="onConfirm">确定</x-button>
-        </footer>
+    <Teleport to="#app">
+      <div class="xx-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="xx-dialog-wrapper">
+        <div class="xx-dialog">
+          <header>
+            <slot v-if="$slots.title" name="title"></slot>
+            <span v-else>{{ title }}</span>
+            <span class="xx-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot v-if="$slots.content" name="content"></slot>
+            <div v-else>{{ content }}</div>
+          </main>
+          <footer>
+            <x-button size="small" @click="onCancel">取消</x-button>
+            <x-button size="small" theme="primary" @click="onConfirm">确定</x-button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 

@@ -21,12 +21,17 @@
         </template>
       </x-dialog>
     </div>
+    <div>
+      <h3>示例2 函数方式打开dialog</h3>
+      <x-button @click="showDialog">toggle</x-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import XDialog from '../lib/dialog.vue'
 import XButton from '../lib/button.vue'
+import { openDialog } from '../lib/plugin/openDialog'
 import { ref } from 'vue'
 
 export default {
@@ -49,8 +54,23 @@ export default {
     }
     const cancel = () => {
     }
+    const showDialog = () => {
+      openDialog({
+        title: '标题',
+        content: '嗨 小星星',
+        onConfirm:() => {
+          console.log('confirm')
+          return false
+        },
+        onCancel:() => {
+          console.log('cancel')
+        },
+        closeOnClickOverlay: false
+      })
+    }
     return {
       visible1,visible,
+      showDialog,
       toggle, confirm, cancel
     }
   }

@@ -44,6 +44,10 @@ export default {
       type: Function,
       default: () => {}
     },
+    onCancel: {
+      type: Function,
+      default: () => {}
+    },
     title: {
       type: String,
       default: ''
@@ -54,7 +58,7 @@ export default {
     },
   },
   setup (props, context) {
-    const { closeOnClickOverlay, onConfirm: propsOnConfirm } = props
+    const { closeOnClickOverlay, onConfirm: propsOnConfirm, onCancel: propsOnCancel} = props
     const close = () => {
       context.emit('update:visible', false)
     }
@@ -64,6 +68,7 @@ export default {
       }
     }
     const onCancel = () => {
+      propsOnCancel?.()
       context.emit('onCancel')
       close()
     }

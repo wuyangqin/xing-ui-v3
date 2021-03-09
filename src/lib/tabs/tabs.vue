@@ -1,7 +1,11 @@
 <template>
   <div class="xx-tabs">
-    <div v-for="(title, index) in tabTitles" :key="index">{{ title }}</div>
-    <component v-for="(tab, index) in defaults" :is="tab" :key="index"/>
+    <div class="xx-tabs-nav">
+      <div class="xx-tabs-nav-item" v-for="(title,index) in tabTitles" :key="index">{{title}}</div>
+    </div>
+    <div class="xx-tabs-content">
+      <component class="xx-tabs-content-item" v-for="(tab,index) in defaults" :is="tab" :key="index" />
+    </div>
   </div>
 </template>
 
@@ -23,6 +27,28 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+@import "../../assets/css/xing-ui-v3.scss";
 
+.xx-tabs {
+  &-nav {
+    display: flex;
+    color: $tabs-label-color;
+    border-bottom: $tabs-nav-border;
+    &-item {
+      padding: $padding-sm 0 !important;
+      margin: 0 $padding-md !important;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0 !important;
+      }
+      &.selected {
+        color: $tabs-selected-color;
+      }
+    }
+  }
+  &-content {
+    padding: $padding-sm 0 !important;
+  }
+}
 </style>

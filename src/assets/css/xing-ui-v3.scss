@@ -88,6 +88,16 @@ $padding-xs: 12px;
 $padding-md: 16px;
 $padding-lg: 20px;
 
+
+//animate
+$duration: 300ms;
+$duration-fast: 250ms;
+
+@keyframes xx-spin {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
 //Switch
 $switch-height: 22px;
 $switch-width: $switch-height * 2;
@@ -122,15 +132,8 @@ $dialog-padding: $padding-xs $padding-md;
 $tabs-nav-border: 1px solid $gray-2;
 $tabs-label-color: $gray-8;
 $tabs-selected-color: $main-theme-color;
-
-//animate
-$duration: 300ms;
-$duration-fast: 250ms;
-
-@keyframes xx-spin {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
-}
+$tabs-indicator-height: 3px;
+$tabs-indicator-duration: $duration-fast;
 
 svg {
   width: 100%;

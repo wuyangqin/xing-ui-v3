@@ -1,12 +1,14 @@
 <template>
   <div class="xx-tabs">
-    <div class="xx-tabs-nav">
+    <div class="xx-tabs-nav" ref="navContainer">
       <div class="xx-tabs-nav-item"
            :class="{ selected: pane.name === selected}"
+           :ref="el => { if (el) navItems[index] = el }"
            v-for="(pane,index) in tabPanes"
            :key="index" @click="changeTab(pane.name)">
         {{ pane.label }}
       </div>
+      <div class="xx-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="xx-tabs-content">
       <component class="xx-tabs-content-item" :is="currentTab" :key="selected" />
@@ -15,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { computed } from 'vue'
+import { ref, computed, onMounted, onUpdated } from 'vue'
 
 export default {
   name: 'xx-tabs',
@@ -26,6 +28,22 @@ export default {
     }
   },
   setup (props, context) {
+    const navItems = ref< HTMLDivElement[] >([]) // HTMLDivElement[] 声明是一个HTML对象数组
+    const indicator = ref<HTMLDivElement>(null)
+    const navContainer = ref<HTMLDivElement>(null)
+    const getIndicatorAttr = () => {
+      const divs = navItems.value
+      const currentNav = divs.filter(div => div.classList.contains('selected'))[0]
+      const { width } = currentNav.getBoundingClientRect()
+      const { left: containerLeft } = navContainer.value.getBoundingClientRect()
+      const { left: currentNavLeft } = currentNav.getBoundingClientRect()
+      const left = currentNavLeft - containerLeft
+      indicator.value.style.left = left + 'px'
+      indicator.value.style.width = width + 'px'
+    }
+    onMounted(getIndicatorAttr)
+    onUpdated(getIndicatorAttr)
+
     const defaults = context.slots.default()
     let tabPanes = []
     defaults.forEach(pane => {
@@ -45,7 +63,12 @@ export default {
     const changeTab = (name: string) => {
       context.emit('update:selected', name)
     }
+
     return {
+      navItems,
+      indicator,
+      navContainer,
+      getIndicatorAttr,
       defaults,
       tabPanes,
       currentTab,
@@ -63,6 +86,8 @@ export default {
     display: flex;
     color: $tabs-label-color;
     border-bottom: $tabs-nav-border;
+    position: relative;
+
     &-item {
       padding: $padding-sm 0 !important;
       margin: 0 $padding-md !important;
@@ -73,6 +98,16 @@ export default {
       &.selected {
         color: $tabs-selected-color;
       }
+    }
+
+    &-indicator {
+      position: absolute;
+      height: $tabs-indicator-height;
+      background: $tabs-selected-color;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
+      transition: all $tabs-indicator-duration;
     }
   }
   &-content {

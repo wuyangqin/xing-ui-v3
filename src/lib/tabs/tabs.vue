@@ -1,28 +1,56 @@
 <template>
   <div class="xx-tabs">
     <div class="xx-tabs-nav">
-      <div class="xx-tabs-nav-item" v-for="(title,index) in tabTitles" :key="index">{{title}}</div>
+      <div class="xx-tabs-nav-item"
+           :class="{ selected: pane.name === selected}"
+           v-for="(pane,index) in tabPanes"
+           :key="index" @click="changeTab(pane.name)">
+        {{ pane.label }}
+      </div>
     </div>
     <div class="xx-tabs-content">
-      <component class="xx-tabs-content-item" v-for="(tab,index) in defaults" :is="tab" :key="index" />
+      <component class="xx-tabs-content-item" :is="currentTab" :key="selected" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { computed } from 'vue'
 
 export default {
   name: 'xx-tabs',
+  props: {
+    selected: {
+      type: String,
+      default: ''
+    }
+  },
   setup (props, context) {
     const defaults = context.slots.default()
-    let tabTitles = []
-    defaults.forEach(com => {
-      if (com.type.name !== 'xx-tab') {
+    let tabPanes = []
+    defaults.forEach(pane => {
+      if (pane.type.name !== 'xx-tab') {
         throw new Error('Tabs 子标签必须是 Tab 组件')
       }
-      tabTitles.push(com.props.label)
+      tabPanes.push({
+        label:pane.props.label,
+        name: pane.props.name
+      })
     })
-    return { defaults, tabTitles }
+
+    const currentTab = computed(() => {
+      return defaults.filter(pane => pane.props.name === props.selected)[0]
+    })
+
+    const changeTab = (name: string) => {
+      context.emit('update:selected', name)
+    }
+    return {
+      defaults,
+      tabPanes,
+      currentTab,
+      changeTab
+    }
   }
 }
 </script>

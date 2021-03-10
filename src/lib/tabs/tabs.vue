@@ -2,9 +2,9 @@
   <div class="xx-tabs">
     <div class="xx-tabs-nav" ref="navContainer">
       <div class="xx-tabs-nav-item"
-           :class="{ selected: pane.name === selected}"
-           :ref="el => { if (el) navItems[index] = el }"
            v-for="(pane,index) in tabPanes"
+           :class="{ selected: pane.name === selected }"
+           :ref="el => { if (pane.name === selected) selectedItem = el }"
            :key="index" @click="changeTab(pane.name)">
         {{ pane.label }}
       </div>
@@ -17,7 +17,13 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, onMounted, onUpdated } from 'vue'
+import {
+  ref,
+  computed,
+  watchEffect,
+  onMounted,
+  onUpdated
+} from 'vue'
 
 export default {
   name: 'xx-tabs',
@@ -28,32 +34,45 @@ export default {
     }
   },
   setup (props, context) {
-    const navItems = ref< HTMLDivElement[] >([]) // HTMLDivElement[] 声明是一个HTML对象数组
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const navContainer = ref<HTMLDivElement>(null)
     const getIndicatorAttr = () => {
-      const divs = navItems.value
-      const currentNav = divs.filter(div => div.classList.contains('selected'))[0]
-      const { width } = currentNav.getBoundingClientRect()
+      console.log(selectedItem.value, 'mountedEl');
+
+      const { width } = selectedItem.value.getBoundingClientRect()
       const { left: containerLeft } = navContainer.value.getBoundingClientRect()
-      const { left: currentNavLeft } = currentNav.getBoundingClientRect()
-      const left = currentNavLeft - containerLeft
+      const { left: selectedItemLeft } = selectedItem.value.getBoundingClientRect()
+      const left = selectedItemLeft - containerLeft
       indicator.value.style.left = left + 'px'
       indicator.value.style.width = width + 'px'
     }
-    onMounted(getIndicatorAttr)
-    onUpdated(getIndicatorAttr)
+    onMounted(() => {
+      console.log('mounted');
+      // getIndicatorAttr()
+      watchEffect(() => {
+        console.log('watch');
+        getIndicatorAttr()
+        console.log(selectedItem.value, 'watchEl');
+      })
+    })
+    onUpdated(()=>{
+      console.log('updated');
+      // getIndicatorAttr()
+    })
 
     const defaults = context.slots.default()
-    let tabPanes = []
     defaults.forEach(pane => {
       if (pane.type.name !== 'xx-tab') {
         throw new Error('Tabs 子标签必须是 Tab 组件')
       }
-      tabPanes.push({
+    })
+
+    const tabPanes = defaults.map(pane => {
+      return {
         label:pane.props.label,
         name: pane.props.name
-      })
+      }
     })
 
     const currentTab = computed(() => {
@@ -65,10 +84,9 @@ export default {
     }
 
     return {
-      navItems,
+      selectedItem,
       indicator,
       navContainer,
-      getIndicatorAttr,
       defaults,
       tabPanes,
       currentTab,

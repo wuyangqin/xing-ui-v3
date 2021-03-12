@@ -38,8 +38,6 @@ export default {
     const indicator = ref<HTMLDivElement>(null)
     const navContainer = ref<HTMLDivElement>(null)
     const getIndicatorAttr = () => {
-      console.log(selectedItem.value, 'mountedEl');
-
       const { width } = selectedItem.value.getBoundingClientRect()
       const { left: containerLeft } = navContainer.value.getBoundingClientRect()
       const { left: selectedItemLeft } = selectedItem.value.getBoundingClientRect()
@@ -47,19 +45,8 @@ export default {
       indicator.value.style.left = left + 'px'
       indicator.value.style.width = width + 'px'
     }
-    onMounted(() => {
-      console.log('mounted');
-      // getIndicatorAttr()
-      watchEffect(() => {
-        console.log('watch');
-        getIndicatorAttr()
-        console.log(selectedItem.value, 'watchEl');
-      })
-    })
-    onUpdated(()=>{
-      console.log('updated');
-      // getIndicatorAttr()
-    })
+    onMounted(getIndicatorAttr)
+    onUpdated(getIndicatorAttr)
 
     const defaults = context.slots.default()
     defaults.forEach(pane => {

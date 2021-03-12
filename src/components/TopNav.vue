@@ -6,11 +6,16 @@
       </svg>
     </div>
     <div class="logo">
-      <router-link to="/">LOGO</router-link>
+      <router-link to="/">
+        <svg>
+          <use xlink:href="#x-logo"></use>
+        </svg>
+      </router-link>
     </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
   </header>
 </template>
@@ -39,7 +44,7 @@ export default {
   display: flex;
   align-items: center;
   padding: $padding-md;
-  z-index: 20;
+  z-index: 1004;
   height: $top-nav-height;
   box-shadow: $box-shadow;
   > .toggle-icon {
@@ -53,12 +58,14 @@ export default {
   }
   > .logo {
     max-width: 6em;
+    width: 2.5em;
   }
   > .menu {
     margin-left: auto;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color: $main-color-lg;
     > li {
       margin: 0 1em;
     }

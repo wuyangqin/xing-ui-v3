@@ -59,7 +59,6 @@ export default {
 @import "../assets/css/xing-ui-v3-docs.scss";
 .home-wrapper {
   .topnavAndBanner {
-    //background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     background-image: linear-gradient(to top, #fff1eb 0%, #cbf1f5 100%);
     clip-path: ellipse(80% 60% at 50% 40%);
     .banner {
@@ -68,16 +67,18 @@ export default {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      color: $main-color-lg;
       > .actions{
         padding: 8px 0;
         a {
           margin:0 8px;
-          background: #fff;
+          background:$main-theme-color;
           display: inline-block;
           $h: 32px;
           height: $h;
           line-height: $h;
           border-radius: $h/2;
+          color: $white;
           padding: 0 1em;
         }
       }

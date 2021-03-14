@@ -5,6 +5,12 @@
       <aside v-show="asideVisible">
         <dl>
           <dt>
+            <h3>文档</h3>
+          </dt>
+          <dd><router-link to="/doc/intro">介绍</router-link></dd>
+          <dd><router-link to="/doc/install">安装</router-link></dd>
+          <dd><router-link to="/doc/get-started">开始使用</router-link></dd>
+          <dt>
             <h3>组件列表</h3>
           </dt>
           <dd><router-link to="/doc/switch">Switch 开关</router-link></dd>

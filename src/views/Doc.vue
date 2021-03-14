@@ -44,7 +44,6 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/css/xing-ui-v3-docs.scss";
-
 .doc-wrapper {
   .content {
     box-sizing: border-box;
@@ -56,16 +55,46 @@ export default {
       width: $aside-width;
       height: 100vh;
       z-index: 1000;
-      padding: $padding-md;
       padding-top: $top-nav-height + 20px;
-      background: $gray-2;
+      background: $white;
+      border-right: $main-border;
       >dl {
         >dt {
           line-height: 48px;
+          >h3 {
+            padding: 0 $padding-md;
+          }
         }
         >dd {
           line-height: 40px;
           text-indent: 1em;
+          >a {
+            display: block;
+            padding: $padding-base $padding-md;
+            text-decoration: none;
+            &.router-link-active {
+              position: relative;
+              color: $main-theme-color;
+              font-weight: bold;
+              &:after{
+                content:'';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 100%;
+                border-radius: $border-radius;
+                background: $main-active-color;
+                animation: xx-large $duration-fast linear;
+              }
+            }
+            @media (any-hover: hover) {
+              &:hover:not(.router-link-active) {
+                color: $main-hover-color;
+              }
+            }
+          }
         }
       }
     }

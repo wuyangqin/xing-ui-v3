@@ -98,6 +98,11 @@ $duration-fast: 250ms;
   100% { transform: rotate(360deg) }
 }
 
+@keyframes xx-large {
+  0% { transform: scaleY(0) }
+  100% { transform: scaleY(1) }
+}
+
 //Switch
 $switch-height: 22px;
 $switch-width: $switch-height * 2;

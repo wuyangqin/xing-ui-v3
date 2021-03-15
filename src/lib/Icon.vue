@@ -1,5 +1,5 @@
 <template>
-  <svg class="x-icon" :style="{ color }">
+  <svg class="xx-icon" :style="{ color }">
     <use :xlink:href="`#x-${name}`"></use>
   </svg>
 </template>
@@ -21,8 +21,8 @@ export default {
 
 <style lang="scss">
 .xx-icon {
-  width: 1em;
-  height: 1em;
+  width: 1em!important;
+  height: 1em!important;
   fill:currentColor;
   color: currentColor;
 }

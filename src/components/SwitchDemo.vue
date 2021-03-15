@@ -1,46 +1,45 @@
 <template>
   <div>
-    <div>
-      <h2>Switch 开关</h2>
-      <p>用于在打开和关闭状态之间进行切换</p>
-    </div>
-    <x-switch v-model:value="bool"></x-switch>
-    <x-switch v-model:value="checked" disabled></x-switch>
-    <x-switch v-model:value="checked" loading></x-switch>
-    <pre class="language-html" v-html="Prism.highlight(code, Prism.languages.html, 'html')" />
+    <demo-page :option="switchOption">
+      <template #primary>
+        <x-switch v-model:value="bool"></x-switch>
+      </template>
+      <template #disabled>
+        <x-switch v-model:value="checked" disabled></x-switch>
+      </template>
+      <template #loading>
+        <x-switch v-model:value="checked" loading></x-switch>
+      </template>
+    </demo-page>
   </div>
 </template>
 
 <script lang="ts">
 import XSwitch from '../lib/Switch.vue'
+import DemoBox from './common/DemoBox.vue'
+import DemoPage from "./common/DemoPage.vue";
+import SWITCH_OPTION from './demoOptions/switch'
 import { ref } from 'vue';
-import 'prismjs';
-const Prism = (window as any).Prism
-// import 'prismjs/themes/prism-coy.css'
 
 export default {
   name: 'switch-demo',
   components: {
+    DemoPage,
+    DemoBox,
     XSwitch
   },
   setup () {
-    const code = ref<string>(`
-    <x-switch v-model:value="bool"></x-switch>
-    <x-switch v-model:value="checked" disabled></x-switch>
-    <x-switch v-model:value="checked" loading></x-switch>`)
+    const switchOption = ref<object> (SWITCH_OPTION)
     const bool = ref<boolean>(false)
     const checked = ref<boolean>(false)
     return {
       bool,
       checked,
-      Prism,
-      code,
+      switchOption
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import '../assets/css/prism.css';
-
 </style>

@@ -21,8 +21,7 @@ import {
   ref,
   computed,
   watchEffect,
-  onMounted,
-  onUpdated
+  onMounted
 } from 'vue'
 
 export default {
@@ -45,8 +44,9 @@ export default {
       indicator.value.style.left = left + 'px'
       indicator.value.style.width = width + 'px'
     }
-    onMounted(getIndicatorAttr)
-    onUpdated(getIndicatorAttr)
+    onMounted(()=>{
+      watchEffect(getIndicatorAttr, { flush:'post' }) // Vue3正式版默认flush为pre（即在渲染前执行watchEffect）
+    })
 
     const defaults = context.slots.default()
     defaults.forEach(pane => {

@@ -45,19 +45,26 @@ export default {
 <style scoped lang="scss">
 @import "../assets/css/xing-ui-v3-docs.scss";
 .doc-wrapper {
+  height: 100vh;
+  overflow: hidden;
   .content {
+    height: 100vh;
+    overflow-y: auto;
+    @extend %xx-scrollbar;
     box-sizing: border-box;
     padding-left: $aside-width;
     aside {
+      overflow-y: auto;
       position: fixed;
       top: 0;
       left: 0;
       width: $aside-width;
       height: 100vh;
       z-index: 1000;
-      padding-top: $top-nav-height + 20px;
+      padding: $content-padding-top 0;
       background: $white;
       border-right: $main-border;
+      @extend %xx-scrollbar;
       >dl {
         >dt {
           line-height: 48px;

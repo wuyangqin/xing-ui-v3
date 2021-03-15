@@ -5,12 +5,12 @@ import SwitchDemo from '../components/SwitchDemo.vue'
 import ButtonDemo from '../components/ButtonDemo.vue'
 import TabsDemo from '../components/TabsDemo.vue'
 import DialogDemo from '../components/DialogDemo.vue'
-import Markdown from '../components/Markdown.vue'
+import Markdown from '../components/common/Markdown.vue'
 import { h } from 'vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
 
 const history = createWebHashHistory()
-const md = fileName => h(Markdown, { path:`../markdown/${fileName}.md`,key:fileName })
+const md = fileName => h(Markdown, { path:`../../markdown/${fileName}.md`,key:fileName })
 export const router = createRouter({
     history,
     routes:[

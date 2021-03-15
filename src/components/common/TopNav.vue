@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/css/xing-ui-v3-docs.scss";
+@import "../../assets/css/xing-ui-v3-docs";
 .top-nav {
   position: relative;
   background: $white;

@@ -4,24 +4,14 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
 
 export default {
   name: 'xx-markdown',
   props: {
-    path:{
+    content:{
       type: String,
       default: ''
-    }
-  },
-  setup(props) {
-    const content = ref<string>('')
-    import(props.path).then((result) => {
-      content.value = result.default
-    })
-    return {
-      content
-    }
+    },
   }
 }
 </script>

@@ -35,7 +35,7 @@ $text-color: #2c3e50;
 .demo-page {
   padding-bottom: 100px;
   footer{
-    >h3 { margin-bottom: $padding-lg; }
+    h3 { margin-bottom: $padding-lg; color: $text-color; }
     table {
       width: 100%;
       font-size: 14px;

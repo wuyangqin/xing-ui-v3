@@ -15,15 +15,16 @@
       </template>
     </demo-box>
     <footer>
-      <h3>Attribute</h3>
-      <markdown :path="`../../markdown/attr-${option.name}.md`"></markdown>
+      <template v-if="attrContent">
+        <markdown :content="attrContent"></markdown>
+      </template>
     </footer>
   </div>
 </template>
 
 <script lang="ts">
 import DemoBox from './DemoBox.vue'
-import Markdown from "./Markdown.vue";
+import Markdown from "./Markdown.vue"
 
 export default {
   name: 'demo-page',
@@ -32,6 +33,10 @@ export default {
     DemoBox
   },
   props: {
+    attrContent: {
+      type:String,
+      default: ''
+    },
     option: {
       type: Object,
       default: () => {}

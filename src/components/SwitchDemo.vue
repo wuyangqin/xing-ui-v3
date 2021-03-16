@@ -1,6 +1,6 @@
 <template>
   <div>
-    <demo-page :option="switchOption">
+    <demo-page :option="switchOption" :attr-content="attrContent">
       <template #primary>
         <x-switch v-model:value="bool"></x-switch>
       </template>
@@ -18,6 +18,7 @@
 import XSwitch from '../lib/Switch.vue'
 import DemoBox from './common/DemoBox.vue'
 import DemoPage from "./common/DemoPage.vue";
+import attrSwitch from '../markdown/attr-switch.md'
 import SWITCH_OPTION from './demoOptions/switch'
 import { ref } from 'vue';
 
@@ -30,12 +31,16 @@ export default {
   },
   setup () {
     const switchOption = ref<object> (SWITCH_OPTION)
+    const attrContent = ref<string>('')
+    attrContent.value = attrSwitch
+
     const bool = ref<boolean>(false)
     const checked = ref<boolean>(false)
     return {
       bool,
       checked,
-      switchOption
+      switchOption,
+      attrContent
     }
   }
 }

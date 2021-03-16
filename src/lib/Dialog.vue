@@ -4,8 +4,10 @@
       <div class="xx-dialog-overlay" @click="onClickOverlay"></div>
       <div class="xx-dialog-wrapper">
         <div class="xx-dialog">
-          <header>
-            <slot v-if="$slots.title" name="title"></slot>
+          <header :class="{ 'title': title || $slots.title }">
+            <div v-if="$slots.title" class="title-slot">
+              <slot name="title"></slot>
+            </div>
             <span v-else>{{ title }}</span>
             <span class="xx-dialog-close" @click="close"></span>
           </header>
@@ -110,12 +112,16 @@ $border-color: #d9d9d9;
 
   > header {
     padding: $dialog-padding;
-    border-bottom: $dialog-border;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: $font-size-lg17;
     font-weight: bold;
+    &.title { border-bottom: $dialog-border; }
+    .title-slot {
+      display: flex;
+      align-items: center;
+    }
   }
 
   > main {

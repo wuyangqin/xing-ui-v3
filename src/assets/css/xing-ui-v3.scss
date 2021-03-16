@@ -63,7 +63,7 @@ $border-color-main: $gray-2;
 $border-color-light: $gray-1;
 
 // overlay
-$overlay-background: fade_out(black, 0.4);
+$overlay-background: fade_out(black, 0.6);
 
 %xx-common-overlay {
   position: fixed;
@@ -72,7 +72,7 @@ $overlay-background: fade_out(black, 0.4);
   width: 100vw;
   height: 100vh;
   background-color: $overlay-background;
-  z-index: 1000;
+  z-index: 1005;
 }
 
 //box-shadow

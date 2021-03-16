@@ -4,9 +4,6 @@
           @click="toggle">
     <span>
       <span v-if="loading" class="xx-loadingIndicator"></span>
-<!--      <i v-if="loading">-->
-<!--        <x-icon name="loading"></x-icon>-->
-<!--      </i>-->
     </span>
   </button>
 </template>

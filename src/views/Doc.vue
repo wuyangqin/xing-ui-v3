@@ -4,19 +4,12 @@
     <div class="content">
       <aside v-show="asideVisible">
         <dl>
-          <dt>
-            <h3>文档</h3>
-          </dt>
-          <dd><router-link to="/doc/intro">介绍</router-link></dd>
-          <dd><router-link to="/doc/install">安装</router-link></dd>
-          <dd><router-link to="/doc/get-started">开始使用</router-link></dd>
-          <dt>
-            <h3>组件列表</h3>
-          </dt>
-          <dd><router-link to="/doc/switch">Switch 开关</router-link></dd>
-          <dd><router-link to="/doc/button">Button 按钮</router-link></dd>
-          <dd><router-link to="/doc/dialog">Dialog 对话框</router-link></dd>
-          <dd><router-link to="/doc/tabs">Tabs 标签页</router-link></dd>
+          <template v-for="menu in docRouters">
+            <dt :key="menu.title">
+              <h3>{{ menu.title }}</h3>
+            </dt>
+            <dd v-for="sub in menu.router" :key="sub.url"><router-link :to="sub.url">{{ sub.title }}</router-link></dd>
+          </template>
         </dl>
       </aside>
       <main>
@@ -28,6 +21,7 @@
 
 <script lang="ts">
 import TopNav from "../components/common/TopNav.vue"
+import { DOC_ROUTERS } from '../components/demoOptions/doc.ts'
 import { inject, ref } from 'vue'
 
 export default {
@@ -37,7 +31,8 @@ export default {
   },
   setup () {
     const asideVisible = inject<ref<boolean>>('asideVisible')
-    return { asideVisible }
+    const docRouters = ref<object>(DOC_ROUTERS)
+    return { asideVisible,docRouters }
   }
 }
 </script>

@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import XIcon from './Icon.vue'
+import { computed } from 'vue'
 
 export default {
   components: {
@@ -33,16 +34,19 @@ export default {
         context.emit('update:value', !props.value)
       }
     }
-    return { toggle }
-  },
-  computed: {
-    switchClasses () {
-      let { value, disabled, loading } = this
+
+    const switchClasses = computed(() => {
+      let { value, disabled, loading } = props
       return {
         'checked': value,
         'disabled': disabled || loading,
         loading
       }
+    })
+
+    return {
+      toggle,
+      switchClasses
     }
   }
 }

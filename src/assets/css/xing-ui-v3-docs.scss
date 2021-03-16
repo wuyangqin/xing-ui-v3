@@ -34,7 +34,10 @@ $text-color: #2c3e50;
 
 .demo-page {
   padding-bottom: 100px;
-  footer{
+  >header {
+    p { margin-top: $padding-xs; }
+  }
+  >footer{
     h3 { margin-bottom: $padding-lg; color: $text-color; }
     table {
       width: 100%;
@@ -68,6 +71,7 @@ $text-color: #2c3e50;
   $transition: all $duration;
   margin-top: 40px;
   &:last-of-type { margin-bottom: 60px; }
+  >p { margin-top: $padding-md; }
   .demo-box {
     margin-top: $padding-lg;
     border: $main-border;
@@ -94,7 +98,7 @@ $text-color: #2c3e50;
         color: $text-color;
         word-break: break-word;
         background-color: $white;
-        p { margin: 0 }
+        p { margin: 0; line-height: 26px; }
         code {
           padding: $padding-base;
           border-radius: 3px;

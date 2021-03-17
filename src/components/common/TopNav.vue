@@ -15,16 +15,24 @@
     <ul class="menu">
       <li>
         <router-link to="/doc/intro">文档</router-link>
+        <router-link to="/doc/switch">组件</router-link>
+        <a href="https://github.com/wuyangqin/xing-ui-v3" target="_blank">
+          <x-icon name="github" style=""></x-icon>
+        </a>
       </li>
     </ul>
   </header>
 </template>
 
 <script lang="ts">
+import XIcon from '../../lib/icon.vue'
 import { inject, ref } from 'vue'
 
 export default {
   name: 'top-nav',
+  components:{
+    XIcon
+  },
   setup () {
     const asideVisible = inject<ref<boolean>>('asideVisible')
     const toggleAside = () => {
@@ -68,6 +76,14 @@ export default {
     color: $main-color-lg;
     > li {
       margin: 0 1em;
+      display: flex;
+      align-items: center;
+      >a { margin-left: $padding-md; vertical-align: baseline; }
+      svg {
+        margin-top: 5px!important;
+        width: 19px !important;
+        height: 19px !important;
+      }
     }
   }
   @media (max-width: $responsive-width) {

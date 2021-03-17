@@ -19,8 +19,10 @@
               <use :xlink:href="`#x-${feat.icon}`"></use>
             </svg>
           </div>
-          <h3>{{ feat.title }}</h3>
-          <p>{{ feat.description }}</p>
+          <div>
+            <h3>{{ feat.title }}</h3>
+            <p>{{ feat.description }}</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -46,10 +48,14 @@ export default {
 <style scoped lang="scss">
 @import "../assets/css/xing-ui-v3-docs.scss";
 .home-wrapper {
+  height: 100vh;
+  overflow: hidden;
   .topnavAndBanner {
+    //height: 50vh;
     background-image: linear-gradient(to top, #fff1eb 0%, #cbf1f5 100%);
     clip-path: ellipse(80% 60% at 50% 40%);
     .banner {
+      //height: 30vh;
       padding: 100px 0;
       display: flex;
       justify-content: center;
@@ -74,8 +80,9 @@ export default {
   }
   .features {
     text-align: center;
+    color: $text-color;
     >ul {
-      margin-top: $padding-md;
+      margin-top: $padding-lg * 3;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -90,8 +97,24 @@ export default {
   }
   @media (max-width: $responsive-width) {
     .features {
+      height: 40vh;
       >ul {
+        margin-top: $padding-lg * 2;
+        height: 100%;
         flex-direction: column;
+        >li{
+          margin-bottom: $padding-lg;
+          width: 75%;
+          display: flex;
+          align-items: center;
+          text-align: left;
+          font-size: $font-size-md15;
+          .home-icon {
+            margin-right: $padding-lg;
+            width: 40px;
+            height: 60px;
+          }
+        }
       }
     }
   }

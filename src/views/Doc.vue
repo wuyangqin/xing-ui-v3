@@ -4,8 +4,8 @@
     <div class="content">
       <aside v-show="asideVisible">
         <dl>
-          <template v-for="menu in docRouters">
-            <dt :key="menu.title">
+          <template v-for="menu in docRouters" :key="menu.title">
+            <dt>
               <h3>{{ menu.title }}</h3>
             </dt>
             <dd v-for="sub in menu.router" :key="sub.url"><router-link :to="sub.url">{{ sub.title }}</router-link></dd>
@@ -101,12 +101,12 @@ export default {
       }
     }
     main {
-      padding: $padding-lg * 2;
+      padding: $padding-lg * 3;
     }
     @media (max-width: $responsive-width) {
       padding: 0;
       main {
-        padding: $padding-lg;
+        padding: $padding-md;
       }
     }
   }

@@ -18,7 +18,7 @@
         <x-button level="danger" theme="primary">危险</x-button>
         <x-button level="success" theme="primary">成功</x-button>
       </div>
-      <div>
+      <div class="button-line">
         <x-button level="info" theme="link">信息</x-button>
         <x-button level="warning" theme="link">警告</x-button>
         <x-button level="danger" theme="link">危险</x-button>
@@ -74,5 +74,8 @@ export default {
 }
 .button-line {
   margin-bottom: 8px;
+  .xx-button:last-of-type {
+    margin-right: 0;
+  }
 }
 </style>

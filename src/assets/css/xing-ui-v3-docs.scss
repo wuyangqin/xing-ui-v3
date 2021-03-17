@@ -38,8 +38,7 @@ $text-color: #2c3e50;
     p { margin-top: $padding-xs; }
   }
   >footer{
-    h3 { margin-bottom: $padding-lg; color: $text-color; }
-    p { color: $text-color; }
+    h3 { margin-bottom: $padding-lg; }
     table {
       margin-bottom: 40px;
       width: 100%;
@@ -80,12 +79,13 @@ $text-color: #2c3e50;
     border-radius: $border-radius;
     transition: $transition;
     .components-box {
-      padding: $padding-lg;
+      padding: $padding-lg - 1;
       &.show { border-bottom: $main-border; }
     }
     .code-wrapper {
       background: $gray-1;
-      overflow: hidden;
+      overflow-y: hidden;
+      overflow-x: auto;
       transition: $transition;
       .demo-pre { margin: 0; }
       .code-description {
@@ -151,4 +151,20 @@ $text-color: #2c3e50;
 .demo-pre {
   background: $gray-1;
   code { color: $gray-8; }
+}
+
+pre[class*="language-"] {
+  overflow-x: auto !important;
+  font-size: $font-size-md;
+  @extend %xx-scrollbar;
+}
+
+.markdown-body {
+  color: $text-color;
+  h2 {
+    border-bottom: none !important;
+  }
+  a {
+    color: $main-color-lg !important;
+  }
 }

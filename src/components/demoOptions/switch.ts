@@ -13,16 +13,16 @@ const SWITCH_OPTION:Object = {
         `,
             code: `
     <template>
-      <Switch v-model:value="checked"></Switch>
+      <x-switch v-model:value="checked"></x-switch>
     </template>
 
     <script lang="ts">
     
-    import Switch from 'xing-ui-v3'
+    import { XSwitch } from 'xing-ui-v3'
     import {ref} from 'vue'
     
     export default {
-      components: {Switch},
+      components: { XSwitch },
       setup() {
         const checked = ref(false)
         return { checked }
@@ -39,16 +39,16 @@ const SWITCH_OPTION:Object = {
             description: `使用 <code>disabled</code> 属性来禁用开关，禁用状态下开关不可点击`,
             code: `
     <template>
-      <Switch v-model:value="checked" disabled></Switch>
+      <x-switch v-model:value="checked" disabled></x-switch>
     </template>
 
     <script lang="ts">
     
-    import Switch from 'xing-ui-v3'
+    import { XSwitch } from 'xing-ui-v3'
     import {ref} from 'vue'
     
     export default {
-      components: {Switch},
+      components: { XSwitch },
       setup() {
         const checked = ref(false)
         return { checked }
@@ -64,16 +64,16 @@ const SWITCH_OPTION:Object = {
             description: `使用 <code>loading</code> 设置开关为加载状态，加载状态下开关不可点击`,
             code: `
     <template>
-      <Switch v-model:value="checked" loading></Switch>
+      <x-switch v-model:value="checked" loading></x-switch>
     </template>
 
     <script lang="ts">
     
-    import Switch from 'xing-ui-v3'
+    import { XSwitch } from 'xing-ui-v3'
     import {ref} from 'vue'
     
     export default {
-      components: {Switch},
+      components: { XSwitch },
       setup() {
         const checked = ref(false)
         return { checked }

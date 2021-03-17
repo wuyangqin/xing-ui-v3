@@ -111,7 +111,6 @@ export default {
       background: $tabs-selected-color;
       left: 0;
       bottom: -1px;
-      width: 100px;
       transition: all $tabs-indicator-duration;
     }
   }

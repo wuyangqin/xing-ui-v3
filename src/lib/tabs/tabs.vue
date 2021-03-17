@@ -66,7 +66,7 @@ export default {
       return defaults.filter(pane => pane.props.name === props.selected)[0]
     })
 
-    const changeTab = (name: string) => {
+    const changeTab = (name) => {
       context.emit('update:selected', name)
     }
 

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted } from 'vue'
+import './svg.js'
 
 export default {
   props: {
@@ -17,11 +17,6 @@ export default {
       type: String,
       default: 'currentColor'
     }
-  },
-  setup () {
-    onMounted(() => {
-      import('./svg.js').then(icon => {})
-    })
   }
 }
 </script>

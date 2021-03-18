@@ -1,7 +1,9 @@
 {
   "name": "xing-ui-v3",
-  "version": "0.0.1",
-  "files": ["dist/lib/*"],
+  "version": "0.0.4",
+  "files": [
+    "dist/lib/*"
+  ],
   "main": "dist/lib/xing-ui-v3.js",
   "scripts": {
     "dev": "vite",
@@ -15,7 +17,7 @@
     "github-markdown-css": "^4.0.0",
     "marked": "^2.0.1",
     "prismjs": "^1.23.0",
-    "vue": "^3.0.0-rc.1",
+    "vue": "^3.0.0",
     "vue-router": "4.0.0-beta.3"
   },
   "devDependencies": {
